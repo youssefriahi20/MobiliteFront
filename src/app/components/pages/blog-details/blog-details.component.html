@@ -32,38 +32,23 @@
 
                  
 
-                    <div class="another-content">
-                       
+                    <div class="container">
+                       <div class="row">
+                        <div class="col">
                         <h2>{{pub.title}}</h2>
                         <p>{{pub.contenu}}</p>
-            
-                     </div>
-
-                    <div class="blog-article-share">
-                        <div class="row align-items-center">
-                            <div class="col-lg-7 col-sm-6 col-md-7">
-                                <div class="blog-tag">
-                                    <ul>
-                                        <li>Tags:</li>
-                                        <li><a routerLink="/blog">#SEO</a></li>
-                                        <li><a routerLink="/blog">#Business</a></li>
-                                        <li><a routerLink="/blog">#Internet</a></li>
-                                        <li><a routerLink="/blog">#Property</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            
-                            <div class="col-lg-5 col-sm-6 col-md-5">
-                                <ul class="social-icon">
-                                    <li><a target="_blank" href="#"><i class="bx bxl-facebook"></i></a></li>
-                                    <li><a target="_blank" href="#"><i class="bx bxl-twitter"></i></a></li>
-                                    <li><a target="_blank" href="#"><i class="bx bxl-instagram"></i></a></li>
-                                    <li><a target="_blank" href="#"><i class="bx bxl-linkedin"></i></a></li>
-                                    <li><a target="_blank" href="#"><i class="bx bxl-youtube"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
                     </div>
+                    <div class="col">
+                        <ng-container *ngIf="liked==0">
+                            <button style=" margin-left: 250px; color: green; outline: none; border: none; border-radius: 50%;" (click) = "Reaction('Like',pub.idPub,pub.user.id)"><i style="size: 100px;" class="fa fa-thumbs-up fa-4x" aria-hidden="true"></i></button>
+                        </ng-container>
+                        <ng-container *ngIf="liked==1">
+                            <button style="margin-left: 250px;color: red; outline: none;border: none; border-radius: 50%;" (click) = "Reaction('Dislike',pub.idPub,pub.user.id)"><i class="fa fa-thumbs-down fa-4x" aria-hidden="true"></i></button>
+                        </ng-container>
+                    </div>
+                     </div>
+                    </div>
+                    
 
                     <div class="article-author">
                         <ul>

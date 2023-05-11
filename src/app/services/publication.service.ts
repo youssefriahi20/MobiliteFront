@@ -22,6 +22,8 @@ export class PublicationService {
    private baseURL8="http://localhost:8099/MobiliteInternationale/publication/Update_Last_Time_Seen"
    private baseURL9="http://localhost:8099/MobiliteInternationale/publication/Favoris-Publication"
    private baseURL10="http://localhost:8099/MobiliteInternationale/publication/Publication-Similaires"
+   private baseURL11="http://localhost:8099/MobiliteInternationale/publication/react-Publication"
+   private baseURL12="http://localhost:8099/MobiliteInternationale/Reaction/retrieve-Reaction"
   constructor(private HttpClient: HttpClient) { }
 
   create(data: Publication): Observable<Object> {
@@ -41,7 +43,13 @@ export class PublicationService {
     return this.HttpClient.get<Publication>(`${this.baseURL8}/${idUser}/${id}`);
   }
 
+  React(idPub:number,type:String,idUser: number): Observable<Reaction>{
+    return this.HttpClient.post<any>(`${this.baseURL11}/${idPub}/${type}/${idUser}`,{});
+  }
 
+  /*getPubById(id: number): Observable<Publication>{
+    return this.HttpClient.get<Publication>(`${this.baseURL2}/${id}`);
+  }*/
 
   getPubById(id: number): Observable<Publication>{
     return this.HttpClient.get<Publication>(`${this.baseURL2}/${id}`);
@@ -63,7 +71,5 @@ export class PublicationService {
     return this.HttpClient.post(`${this.baseURL4}/${idUser}/${idPub}`, data);
   }
 
-  React(data: Reaction,idCmnt: number): Observable<Object>{
-    return this.HttpClient.post(`${this.baseURL5}/${idCmnt}`, data);
-  }
+ 
 }

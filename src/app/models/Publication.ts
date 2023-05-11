@@ -1,6 +1,7 @@
 import { Commentaires } from "./Commentaires";
 import { Favoris } from "./Favoris";
 import { User } from "./User";
+import { Reaction } from './Reaction';
 
 export class Publication{
      idPub:number;
@@ -11,4 +12,5 @@ export class Publication{
     bloquercmnt:boolean;
     favoris:Favoris
     commentaires:Commentaires[];
+    reactions:Reaction[];
 }

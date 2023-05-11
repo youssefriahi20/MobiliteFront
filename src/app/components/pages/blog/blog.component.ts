@@ -26,12 +26,13 @@ export class BlogComponent implements OnInit {
   }
 
   getPublications(){
+    // find all publication 
     this.service.findAll().subscribe( data => {
       console.log(data.length); 
 this.publications=data;
     });
   }
-
+ // naviguer vers la page blog details 
   PubDetails(id: number){
     console.log("azeaeaz")
     this.router.navigate(['blog-details', id]);
