@@ -49,6 +49,7 @@ This files table contents are outlined below>>>>>
 /*================================================
 Default CSS
 =================================================*/
+@import 'ngx-toastr/toastr';
 $title-font: 'Livvic', sans-serif;
 $body-font: 'Nunito Sans', sans-serif;
 $main-color: #ff3900;
@@ -6648,3 +6649,5 @@ Animation CSS
       opacity: 0;
     }
 }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

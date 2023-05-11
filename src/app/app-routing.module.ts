@@ -42,12 +42,13 @@ const routes: Routes = [
     {path: 'services', component: ServicesComponent},
     {path: 'services-details', component: ServicesDetailsComponent},
     {path: 'blog', component: BlogComponent},
-    {path: 'blog-details', component: BlogDetailsComponent},
+    {path: 'blog-details/:id', component: BlogDetailsComponent},
     {path: 'contact', component: ContactComponent},
     
 
     {path: '**', component: ErrorComponent}
 ];
+
 
 @NgModule({
     imports: [RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' })],

@@ -31,7 +31,12 @@ import { ServicesDetailsComponent } from './components/pages/services-details/se
 import { BlogDetailsComponent } from './components/pages/blog-details/blog-details.component';
 import { BlogComponent } from './components/pages/blog/blog.component';
 import { ContactComponent } from './components/pages/contact/contact.component';
-
+import {MatDialogModule } from '@angular/material/dialog'
+import { CreatePubPopUpComponent } from './components/pages/create-pub-pop-up/create-pub-pop-up.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule } from '@angular/forms';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { ToastrModule } from 'ngx-toastr';
 @NgModule({
   declarations: [
     AppComponent,
@@ -62,11 +67,17 @@ import { ContactComponent } from './components/pages/contact/contact.component';
     ServicesDetailsComponent,
     BlogDetailsComponent,
     BlogComponent,
-    ContactComponent
+    ContactComponent,
+    CreatePubPopUpComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatDialogModule,
+    BrowserAnimationsModule,
+    FormsModule,
+    HttpClientModule,
+    ToastrModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]

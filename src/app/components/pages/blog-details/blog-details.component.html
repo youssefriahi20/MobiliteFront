@@ -33,8 +33,10 @@
                  
 
                     <div class="another-content">
+                       
                         <h2>{{pub.title}}</h2>
-                        <p>{{pub.contenu}}</p> 
+                        <p>{{pub.contenu}}</p>
+            
                      </div>
 
                     <div class="blog-article-share">
@@ -90,19 +92,14 @@
 
                     <div class="article-post">
                         <div class="row">
-                            <div class="col-lg-6 col-sm-6">
+                            <div *ngFor = "let p of PublSimilaires" class="col-lg-6 col-sm-6">
                                 <div class="article-post-share">
-                                    <span>Jun 12, 2020 / <a routerLink="/blog">SEO</a></span>
-                                    <a routerLink="/blog-details"><h3>Successful digital marketer does first to ensure they get</h3></a>
+                                    <span>{{p.title}}</span>
+                                    <a><h3>{{p.contenu}}</h3></a>
                                 </div>
                             </div>
 
-                            <div class="col-lg-6 col-sm-6">
-                                <div class="article-post-share">
-                                    <span>April 19, 2020 / <a routerLink="/blog">Web</a></span>
-                                    <a routerLink="/blo-detailsg"><h3 class="active">Marketer who knows how to execute their campaigns</h3></a>
-                                </div>
-                            </div>
+                           
                         </div>
                     </div>
 
@@ -115,8 +112,6 @@
                                 <h3>{{cmnt.user.username}}</h3>
                                 <span>{{cmnt.dateCmnt|date}}</span>
                                <p>{{cmnt.contenu}}</p>
-                            <button (click)="like()" onclick="this.style.color='green'"  [disabled]="likes > 0" class="btn" id="green"><i class="fa fa-thumbs-up fa-lg" aria-hidden="true"></i></button>
-  <button (click)="dislike()" onclick="this.style.color='red'" [disabled]="dislikes > 0" class="btn" id="red"><i class="fa fa-thumbs-down fa-lg" aria-hidden="true"></i></button>   
                             </li>
                             <li class="ml-30">
                            
@@ -186,7 +181,13 @@
             <div class="col-lg-4 col-md-12">
                 <div class="blog-widget-left">
                 
-
+                    <button *ngIf="isFavorite" style="margin-left: 130px;margin-bottom: 50px; background-color: red;" type="submit" (click)="addFavoris()" disabled class="btn btn-danger">already in favoris <i class='fa fa-heart-o'></i></button>
+                    <button *ngIf="isFavorite==false" style="margin-left: 130px;margin-bottom: 50px;" type="submit" (click)="addFavoris()"   class="default-btn">add to favoris <i class='fa fa-heart-o'></i></button>
+                    <ng-template #elseBlock>
+                        <div>
+                          Le contenu du div est affiché si la variable est nulle.
+                        </div>
+                      </ng-template>
                     <div class="blog-widget">
                         <h3 class="title">Recent Posts</h3>
 

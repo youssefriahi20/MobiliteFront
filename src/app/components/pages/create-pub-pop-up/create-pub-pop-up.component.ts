@@ -23,6 +23,7 @@ export class CreatePubPopUpComponent implements OnInit {
   add() {
     this.pub.user=new User();
     this.pub.user.id=1;
+    console.log("test add")
     this.pub.bloquercmnt=this.isChecked;
   this.service.create(this.pub).subscribe(data=>this.dialogRef.close())
  }
